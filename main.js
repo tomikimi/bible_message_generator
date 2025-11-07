@@ -138,15 +138,18 @@ function getRandomBibleQuote(selectedQuotes, index, name) {
 }
 
 // Get the FullName of the User of the App
-// rl.question(
-//   "\n --Bible Quote Generator-- \n\n Hi, What is your Name?",
-//   (name) => {
-//     fullName = getFullName(name);
-//     console.log(`${fullName}`);
-//     rl.close();
-//   }
-// );
+rl.question(
+  "\n --Bible Quote Generator-- \n\n Hi, What is your Name? ",
+  (name) => {
+    fullName = getFullName(name);
+    if (fullName) {
+      console.log(
+        `\nDear ${fullName}, This is the word for you today from \n\n ${generateRandomMessage()}`
+      );
+    } else {
+      console.log("Please provide us with your Name...");
+    }
 
-// let index = generateRandomIndex();
-// console.log(getRandomBibleQuote(index));
-console.log(generateRandomMessage());
+    rl.close();
+  }
+);
